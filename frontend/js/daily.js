@@ -4,6 +4,37 @@ function dateSeedForDifficulty(difficulty) {
     return Number(date) + bonus;
 }
 
+function startDailyChallenge(difficulty, shouldScroll) {
+    var status = getDailyStatus();
+
+    if (status[difficulty]) {
+        showMessage(difficulty + " Challenge Completed. Come Back Tomorrow.", true);
+        return;
+    }
+
+    var generated = generateSudoku(difficulty, dateSeedForDifficulty(difficulty));
+    startGame(difficulty, { mode: "daily", generated: generated });
+    showMessage("Daily " + difficulty + " challenge started.");
+
+    if (shouldScroll) {
+        document.getElementById("playArea").scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+function startFirstAvailableDailyChallenge() {
+    var status = getDailyStatus();
+    var difficulties = ["easy", "medium", "hard"];
+
+    for (var i = 0; i < difficulties.length; i++) {
+        if (!status[difficulties[i]]) {
+            startDailyChallenge(difficulties[i], false);
+            return;
+        }
+    }
+
+    showMessage("All daily challenges are completed. Come back tomorrow.");
+}
+
 function renderDailyOptions() {
     var list = document.getElementById("dailyList");
     if (!list) return;
@@ -29,10 +60,7 @@ function renderDailyOptions() {
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener("click", function (event) {
             var difficulty = event.target.dataset.difficulty;
-            var generated = generateSudoku(difficulty, dateSeedForDifficulty(difficulty));
-            startGame(difficulty, { mode: "daily", generated: generated });
-            showMessage("Daily " + difficulty + " challenge started.");
-            document.getElementById("playArea").scrollIntoView({ behavior: "smooth" });
+            startDailyChallenge(difficulty, true);
         });
     }
 }
@@ -42,5 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
         buildNumberPad();
         bindGameControls();
         renderDailyOptions();
+        startFirstAvailableDailyChallenge();
     }
 });
