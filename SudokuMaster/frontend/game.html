@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play - Sudoku Master</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="game">
+    <header class="topbar">
+        <a class="brand" href="index.html">Sudoku Master</a>
+        <nav class="nav">
+            <a href="game.html">Play</a>
+            <a href="daily.html">Daily Challenge</a>
+            <a href="stats.html">Statistics</a>
+            <a href="about.html">About</a>
+            <button class="icon-btn" id="themeToggle" title="Dark mode">Dark</button>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="game-layout">
+            <div class="panel">
+                <div class="status-row">
+                    <div class="metric"><strong id="difficultyLabel">EASY</strong><span>Difficulty</span></div>
+                    <div class="metric"><strong id="timerLabel">00:00</strong><span>Timer</span></div>
+                    <div class="metric"><strong id="scoreLabel">1000</strong><span>Score</span></div>
+                    <div class="metric"><strong id="mistakesLabel">0</strong><span>Mistakes</span></div>
+                </div>
+                <div class="sudoku-grid" id="sudokuGrid"></div>
+                <div class="number-pad" id="numberPad"></div>
+            </div>
+
+            <aside class="side-stack">
+                <div class="panel">
+                    <h2>Play</h2>
+                    <div class="controls">
+                        <select id="difficultySelect" aria-label="Difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                        <button class="btn primary" id="newGameButton">New Game</button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="stats-row">
+                        <div class="metric"><strong id="hintsLabel">3</strong><span>Hints</span></div>
+                        <div class="metric"><strong>3</strong><span>Limit</span></div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn" id="hintButton">Hint</button>
+                        <button class="btn" id="undoButton">Undo</button>
+                        <button class="btn" id="restartButton">Restart</button>
+                        <button class="btn primary" id="submitButton">Submit</button>
+                        <button class="btn" id="solveButton">Solve</button>
+                    </div>
+                    <p class="message" id="gameMessage"></p>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="js/theme.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

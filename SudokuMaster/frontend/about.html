@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Sudoku Master</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html">Sudoku Master</a>
+        <nav class="nav">
+            <a href="game.html">Play</a>
+            <a href="daily.html">Daily Challenge</a>
+            <a href="stats.html">Statistics</a>
+            <a href="about.html">About</a>
+            <button class="icon-btn" id="themeToggle" title="Dark mode">Dark</button>
+        </nav>
+    </header>
+
+    <main class="page">
+        <h1>About</h1>
+        <section class="about-grid">
+            <article class="about-block">
+                <h2>What is Sudoku?</h2>
+                <p>Sudoku is a 9 by 9 number puzzle. The goal is to fill every empty cell using numbers 1 to 9 so that no number repeats in any row, column, or 3 by 3 box.</p>
+            </article>
+            <article class="about-block">
+                <h2>Recursion</h2>
+                <p>Recursion means a function calls itself to solve a smaller part of the same problem. In Sudoku, the solver fills one empty cell and then calls itself to fill the next cell.</p>
+            </article>
+            <article class="about-block">
+                <h2>Backtracking</h2>
+                <p>Backtracking tries one possible value at a time. If a value later causes a problem, the program removes it and tries another value.</p>
+            </article>
+            <article class="about-block">
+                <h2>Generation</h2>
+                <p>The generator starts with an empty board, fills it recursively using shuffled numbers, stores the solved board, and removes cells based on difficulty.</p>
+            </article>
+            <article class="about-block">
+                <h2>Solving</h2>
+                <p>The solver finds an empty cell, checks numbers 1 to 9 using isSafe, places a valid number, and continues recursively until the board is solved.</p>
+            </article>
+            <article class="about-block">
+                <h2>DSA Concepts</h2>
+                <p>The project demonstrates 2D arrays, functions, classes, objects, recursion, backtracking, vectors, random shuffling, and simple modular programming.</p>
+            </article>
+        </section>
+    </main>
+
+    <script src="js/theme.js"></script>
+</body>
+</html>

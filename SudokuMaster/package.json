@@ -1,0 +1,17 @@
+{
+  "name": "sudoku-master",
+  "version": "1.0.0",
+  "description": "DSA based Sudoku game using basic C++ and a static vanilla JavaScript website.",
+  "scripts": {
+    "start": "npx serve frontend",
+    "build": "echo \"Static site ready\""
+  },
+  "keywords": [
+    "sudoku",
+    "dsa",
+    "cpp",
+    "vercel"
+  ],
+  "author": "",
+  "license": "MIT"
+}
